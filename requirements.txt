@@ -1,0 +1,6 @@
+
+streamlit
+pypdf
+langchain
+langchain-groq
+langgraph
