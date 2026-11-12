@@ -1,6 +1,27 @@
+# Smart PDF Assistant Agent V2
 
-streamlit
-pypdf
-langchain
-langchain-groq
-langgraph
+## What is included
+- Arabic/English PDF Q&A
+- Multiple PDF uploads
+- Page-aware source references in answers
+- PDF summaries and action-item extraction
+- Cross-document comparison
+- Word and PDF report downloads
+- Conversation history stored in a local SQLite database
+
+## Run locally
+```bash
+python -m venv .venv
+# Windows PowerShell:
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+streamlit run app.py
+```
+
+Set `GROQ_API_KEY` in Streamlit Secrets or as an environment variable.
+
+## Important persistence note
+The included SQLite database keeps documents' extracted text and chat history between app reruns on the same running deployment. Streamlit Cloud's local filesystem is not guaranteed to be permanent across rebuilds/restarts. For durable multi-device accounts and long-term storage, connect Supabase or another managed database in the next deployment step.
+
+## OCR note
+Scanned PDFs (images of pages) require OCR; this version detects PDFs with no extractable text and warns the user.
